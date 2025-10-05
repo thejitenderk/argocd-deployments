@@ -4,6 +4,7 @@ metadata:
   name: jkapp-service
   namespace: default
 spec:
+  type: LoadBalancer
   selector:
     app: jkapp
   ports:
