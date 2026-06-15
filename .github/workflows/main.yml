@@ -3,8 +3,13 @@ name: actionsPractice
 on:
   workflow_dispatch:
 
+env:
+  FIRST_NAME: Mona
+
 jobs:
   my_first_job:
+    env:
+      LAST_NAME: Darling
     name: my first job
     runs-on: ubuntu-latest
     steps:
@@ -12,7 +17,7 @@ jobs:
         uses: actions/checkout@v6.0.3
       
       - name: Greetings
-        run: echo "Hello World"
+        run: echo "Hello, $FIRST_NAME $LAST_NAME"
         
       - name: List files
         run: ls -a
