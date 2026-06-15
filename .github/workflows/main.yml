@@ -17,7 +17,9 @@ jobs:
         uses: actions/checkout@v6.0.3
       
       - name: Greetings
-        run: echo "Hello, $FIRST_NAME $LAST_NAME"
+        env:
+          WELL: KemCho
+        run: echo "Hello, $FIRST_NAME $LAST_NAME! $WELL?"
         
       - name: List files
         run: ls -a
