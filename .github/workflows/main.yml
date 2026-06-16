@@ -3,8 +3,6 @@ name: actionsPractice
 on:
   workflow_dispatch:
 
-env:
-  FIRST_NAME: Mona
 
 jobs:
   my_first_job:
@@ -19,7 +17,7 @@ jobs:
       - name: Greetings
         env:
           WELL: KemCho
-        run: echo "Hello, $FIRST_NAME $LAST_NAME! $WELL?"
+        run: echo "Hello, ${{ vars.FIRST_NAME}} $LAST_NAME! $WELL?"
         
       - name: List files
         run: ls -a
