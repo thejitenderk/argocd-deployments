@@ -6,8 +6,6 @@ on:
 
 jobs:
   my_first_job:
-    env:
-      LAST_NAME: Darling
     name: my first job
     runs-on: ubuntu-latest
     steps:
@@ -17,7 +15,7 @@ jobs:
       - name: Greetings
         env:
           WELL: KemCho
-        run: echo "Hello, ${{ vars.FIRST_NAME}} $LAST_NAME! $WELL?"
+        run: echo "Hello, ${{ vars.FIRST_NAME}} ${{ secrets.LAST_NAME }}! $WELL?"
         
       - name: List files
         run: ls -a
