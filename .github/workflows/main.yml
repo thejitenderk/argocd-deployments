@@ -4,7 +4,6 @@ on:
 jobs:
   my_first_job:
     name: first job
-    continue-on-error: true
     runs-on: ubuntu-slim
     steps:
       - run: echo "my first job ran successful"
@@ -12,6 +11,7 @@ jobs:
   my_second_job:
     name: second job
     needs: my_first_job
+    if: always()
     runs-on: ubuntu-slim
     steps:
       - run: echo "my second job ran successful"
