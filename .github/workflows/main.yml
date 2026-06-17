@@ -1,5 +1,6 @@
 name: github action trigger practice
 on:
+  push:
   pull_request:
      branches:
        - develop
