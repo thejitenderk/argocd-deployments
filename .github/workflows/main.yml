@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - run: echo "my first job ran successful"
+      - run: cat service.yaml
   my_second_job:
     name: second job
     needs: my_first_job
