@@ -1,7 +1,11 @@
 name: github action trigger practice
 on:
   # workflow_dispatch:
-  push: 
+  push:
+    branches:
+      - main
+      - feature
+      - develop
 
 
 jobs:
