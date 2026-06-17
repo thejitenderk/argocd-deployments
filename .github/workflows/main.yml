@@ -1,15 +1,13 @@
 on:
-  push:
+  workflow_dispatch: 
+
 
 jobs:
-  example_matrix:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-    name: matrix job
-    runs-on: ${{ matrix.os }}
+  first_job:
+    name: first job
+    runs-on: ubuntu-latest
     steps:
-      - run: echo "hello world"
+      - run: echo "Hello World"
 
 # pahle job ko run karne do and agar wo successful tab tu chal ja
 # needs, continue on error, if: always
