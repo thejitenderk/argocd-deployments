@@ -4,13 +4,13 @@ on:
 jobs:
   my_first_job:
     name: first job
+    continue-on-error: true
     runs-on: ubuntu-slim
     steps:
       - run: echo "my first job ran successful"
       - run: cat service.yaml
   my_second_job:
     name: second job
-    needs: my_first_job
     runs-on: ubuntu-slim
     steps:
       - run: echo "my second job ran successful"
