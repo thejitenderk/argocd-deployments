@@ -1,19 +1,14 @@
-# File: .github/workflows/workflow.yml
-
-on: [push]
-
-name: Run Azure Login With a Service Principal Secret
+on:
+  push:
 
 jobs:
-
-  build-and-deploy:
-    runs-on: devops
+  my_first_job:
+    name: first job
+    runs-on: ubuntu-slim
     steps:
-
-    - name: azure login 
-      uses: azure/login@v3
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-    - name: run az cli
-      run: az account show
-    
+      - run: echo "my first job ran successful"
+  my_second_job:
+    name: second job
+    runs-on: ubuntu-slim
+    steps:
+      - run: echo "my second job ran successful"
