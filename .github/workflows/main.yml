@@ -1,3 +1,4 @@
+name: github action trigger practice
 on:
   workflow_dispatch: 
 
