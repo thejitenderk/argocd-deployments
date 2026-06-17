@@ -9,6 +9,9 @@ jobs:
       - run: echo "my first job ran successful"
   my_second_job:
     name: second job
+    needs: my_first_job
     runs-on: ubuntu-slim
     steps:
       - run: echo "my second job ran successful"
+
+# pahle job ko run karne do and agar wo successful tab tu chal ja
