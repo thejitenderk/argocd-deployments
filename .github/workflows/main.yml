@@ -2,18 +2,14 @@ on:
   push:
 
 jobs:
-  my_first_job:
-    name: first job
-    runs-on: ubuntu-slim
+  example_matrix:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    name: matrix job
+    runs-on: ${{ matrix.os }}
     steps:
-      - run: echo "my first job ran successful"
-      - run: cat service.yaml
-  my_second_job:
-    name: second job
-    needs: my_first_job
-    if: always()
-    runs-on: ubuntu-slim
-    steps:
-      - run: echo "my second job ran successful"
+      - run: echo "hello world"
 
 # pahle job ko run karne do and agar wo successful tab tu chal ja
+# needs, continue on error, if: always
