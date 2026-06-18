@@ -15,15 +15,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Terraform Setup
-        run: |
-          wget -O - https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(grep -oP '(?<=UBUNTU_CODENAME=).*' /etc/os-release || lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-          sudo apt update && sudo apt install terraform
-        
+        uses: hashicorp/setup-terraform@v4
+
+      - name: Checkout Repository
+        uses: actions/checkout@v6.0.3
+
       - name: terraform init
         run: terraform init
         
       - name: terraform validate
         run: terraform validate
 
-      - run: terraform plan
+      - name: terraform plan
+        run: terraform plan
