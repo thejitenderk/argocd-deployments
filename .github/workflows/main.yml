@@ -10,11 +10,14 @@ on:
 
 
 jobs:
-  first_job:
-    name: first job
+  terraform_init_plan:
+    name: Terraform Init and Plan
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello World"
+      - name: terraform init
+        run: terraform init
+        
+      - name: terraform validate
+        run: terraform validate
 
-# pahle job ko run karne do and agar wo successful tab tu chal ja
-# needs, continue on error, if: always
+      - run: terraform plan
