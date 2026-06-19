@@ -24,6 +24,7 @@ jobs:
   terraform_init_plan:
     name: Terraform Init and Plan
     runs-on: ubuntu-latest
+    environment: dev
     steps:
       - name: Terraform Setup
         uses: hashicorp/setup-terraform@v4
