@@ -8,11 +8,11 @@ on:
        - develop
        - main
 
-# env:
-#   ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-#   ARM_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
-#   ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-#   ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+env:
+  ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
+  ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
+  ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  ARM_USE_OIDC: true
 
 
 permissions:
@@ -30,13 +30,6 @@ jobs:
 
       - name: Checkout Repository
         uses: actions/checkout@v6.0.3
-        
-      - name: Azure Login
-        uses: Azure/login@v3
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           
       - name: terraform init
         run: terraform init
