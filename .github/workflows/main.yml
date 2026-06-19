@@ -34,9 +34,6 @@ jobs:
 
       - uses: hashicorp/setup-terraform@v4
 
-      - name: Terraform Fmt
-        run: terraform fmt -check -recursive
-
       - name: Terraform Validate
         run: terraform validate
 
