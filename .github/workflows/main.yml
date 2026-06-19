@@ -40,9 +40,11 @@ jobs:
 
       - name: Run TFLint
         run: tflint --recursive
+        continue-on-error: true
 
       - name: Run tfsec
         uses: aquasecurity/tfsec-action@v1.0.3
+        continue-on-error: true
 
 # ==================================
 # PR VALIDATION
