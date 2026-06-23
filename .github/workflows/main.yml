@@ -14,6 +14,10 @@ permissions:
   id-token: write
   contents: read
 
+defaults:
+  run:
+    working-directory: ./environment/dev
+
 env:
   ARM_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
   ARM_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
@@ -29,6 +33,9 @@ jobs:
   terraform_scan:
     name: Terraform Scan
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./environments/dev
 
     steps:
       - uses: actions/checkout@v4
